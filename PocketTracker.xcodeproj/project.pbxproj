@@ -11,6 +11,11 @@
 		524668622AE993FC006309FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668612AE993FC006309FE /* ContentView.swift */; };
 		524668642AE99400006309FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524668632AE99400006309FE /* Assets.xcassets */; };
 		524668672AE99400006309FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524668662AE99400006309FE /* Preview Assets.xcassets */; };
+		524668712AE99434006309FE /* ExpensesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5246686F2AE99434006309FE /* ExpensesModel.xcdatamodeld */; };
+		524668732AE99496006309FE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668722AE99496006309FE /* DataController.swift */; };
+		524668752AE99AA4006309FE /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668742AE99AA4006309FE /* AddExpensesView.swift */; };
+		524668772AE99AD1006309FE /* EditExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668762AE99AD1006309FE /* EditExpensesView.swift */; };
+		5246687A2AE99B13006309FE /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668792AE99B13006309FE /* TimeFormatting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		524668612AE993FC006309FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		524668632AE99400006309FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		524668662AE99400006309FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		524668702AE99434006309FE /* ExpensesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpensesModel.xcdatamodel; sourceTree = "<group>"; };
+		524668722AE99496006309FE /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		524668742AE99AA4006309FE /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
+		524668762AE99AD1006309FE /* EditExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpensesView.swift; sourceTree = "<group>"; };
+		524668792AE99B13006309FE /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +61,10 @@
 		5246685E2AE993FC006309FE /* PocketTracker */ = {
 			isa = PBXGroup;
 			children = (
+				524668782AE99B02006309FE /* Helpers */,
+				5246686E2AE9941D006309FE /* DataModel */,
+				5246686D2AE9940A006309FE /* Views */,
 				5246685F2AE993FC006309FE /* PocketTrackerApp.swift */,
-				524668612AE993FC006309FE /* ContentView.swift */,
 				524668632AE99400006309FE /* Assets.xcassets */,
 				524668652AE99400006309FE /* Preview Content */,
 			);
@@ -65,6 +77,33 @@
 				524668662AE99400006309FE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5246686D2AE9940A006309FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				524668612AE993FC006309FE /* ContentView.swift */,
+				524668742AE99AA4006309FE /* AddExpensesView.swift */,
+				524668762AE99AD1006309FE /* EditExpensesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5246686E2AE9941D006309FE /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				5246686F2AE99434006309FE /* ExpensesModel.xcdatamodeld */,
+				524668722AE99496006309FE /* DataController.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		524668782AE99B02006309FE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				524668792AE99B13006309FE /* TimeFormatting.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +177,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				524668622AE993FC006309FE /* ContentView.swift in Sources */,
+				5246687A2AE99B13006309FE /* TimeFormatting.swift in Sources */,
+				524668732AE99496006309FE /* DataController.swift in Sources */,
+				524668752AE99AA4006309FE /* AddExpensesView.swift in Sources */,
+				524668772AE99AD1006309FE /* EditExpensesView.swift in Sources */,
+				524668712AE99434006309FE /* ExpensesModel.xcdatamodeld in Sources */,
 				524668602AE993FC006309FE /* PocketTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +388,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5246686F2AE99434006309FE /* ExpensesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				524668702AE99434006309FE /* ExpensesModel.xcdatamodel */,
+			);
+			currentVersion = 524668702AE99434006309FE /* ExpensesModel.xcdatamodel */;
+			path = ExpensesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 524668542AE993FC006309FE /* Project object */;
 }
