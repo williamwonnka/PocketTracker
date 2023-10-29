@@ -19,7 +19,7 @@ struct EditExpensesView: View {
     var body: some View {
         
         Form {
-            Section {
+            Section(header: Text("Editar Gasto"))  {
                 TextField("\(expenses.nombre!)", text: $name)
                     .onAppear{
                         name = expenses.nombre!
@@ -32,7 +32,7 @@ struct EditExpensesView: View {
                 
                 HStack{
                     Spacer()
-                    Button("Submit") {
+                    Button("Actualizar") {
                         DataController().editGastos(expense: expenses, name: name, gastos: Double(gastos)!, context: managedObjContext)
                         dismm()
                     }

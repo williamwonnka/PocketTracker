@@ -14,7 +14,7 @@ struct PocketTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MenuPrincipal()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }

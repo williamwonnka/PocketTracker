@@ -16,6 +16,12 @@
 		524668752AE99AA4006309FE /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668742AE99AA4006309FE /* AddExpensesView.swift */; };
 		524668772AE99AD1006309FE /* EditExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668762AE99AD1006309FE /* EditExpensesView.swift */; };
 		5246687A2AE99B13006309FE /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524668792AE99B13006309FE /* TimeFormatting.swift */; };
+		DE06E3232AE9D57F0012E788 /* MoneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06E3222AE9D57F0012E788 /* MoneyController.swift */; };
+		DE06E3252AE9DB1B0012E788 /* MenuPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06E3242AE9DB1B0012E788 /* MenuPrincipal.swift */; };
+		DEB4BEB02AE9B0D000D0A1E4 /* AddMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4BEAF2AE9B0D000D0A1E4 /* AddMoneyView.swift */; };
+		DEB4BEB42AE9B1E000D0A1E4 /* EditMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4BEB32AE9B1E000D0A1E4 /* EditMoneyView.swift */; };
+		DEB4BEB62AE9BF5D00D0A1E4 /* Fondos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4BEB52AE9BF5D00D0A1E4 /* Fondos.swift */; };
+		DEF5E4F22AEA04EA004AA6C9 /* Resumen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF5E4F12AEA04EA004AA6C9 /* Resumen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,12 @@
 		524668742AE99AA4006309FE /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
 		524668762AE99AD1006309FE /* EditExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpensesView.swift; sourceTree = "<group>"; };
 		524668792AE99B13006309FE /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
+		DE06E3222AE9D57F0012E788 /* MoneyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyController.swift; sourceTree = "<group>"; };
+		DE06E3242AE9DB1B0012E788 /* MenuPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPrincipal.swift; sourceTree = "<group>"; };
+		DEB4BEAF2AE9B0D000D0A1E4 /* AddMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyView.swift; sourceTree = "<group>"; };
+		DEB4BEB32AE9B1E000D0A1E4 /* EditMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoneyView.swift; sourceTree = "<group>"; };
+		DEB4BEB52AE9BF5D00D0A1E4 /* Fondos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fondos.swift; sourceTree = "<group>"; };
+		DEF5E4F12AEA04EA004AA6C9 /* Resumen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resumen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,11 @@
 				524668612AE993FC006309FE /* ContentView.swift */,
 				524668742AE99AA4006309FE /* AddExpensesView.swift */,
 				524668762AE99AD1006309FE /* EditExpensesView.swift */,
+				DEB4BEAF2AE9B0D000D0A1E4 /* AddMoneyView.swift */,
+				DEB4BEB32AE9B1E000D0A1E4 /* EditMoneyView.swift */,
+				DEB4BEB52AE9BF5D00D0A1E4 /* Fondos.swift */,
+				DE06E3242AE9DB1B0012E788 /* MenuPrincipal.swift */,
+				DEF5E4F12AEA04EA004AA6C9 /* Resumen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -94,6 +111,7 @@
 			children = (
 				5246686F2AE99434006309FE /* ExpensesModel.xcdatamodeld */,
 				524668722AE99496006309FE /* DataController.swift */,
+				DE06E3222AE9D57F0012E788 /* MoneyController.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -176,12 +194,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB4BEB42AE9B1E000D0A1E4 /* EditMoneyView.swift in Sources */,
+				DE06E3252AE9DB1B0012E788 /* MenuPrincipal.swift in Sources */,
 				524668622AE993FC006309FE /* ContentView.swift in Sources */,
+				DEB4BEB02AE9B0D000D0A1E4 /* AddMoneyView.swift in Sources */,
 				5246687A2AE99B13006309FE /* TimeFormatting.swift in Sources */,
 				524668732AE99496006309FE /* DataController.swift in Sources */,
+				DE06E3232AE9D57F0012E788 /* MoneyController.swift in Sources */,
 				524668752AE99AA4006309FE /* AddExpensesView.swift in Sources */,
 				524668772AE99AD1006309FE /* EditExpensesView.swift in Sources */,
+				DEF5E4F22AEA04EA004AA6C9 /* Resumen.swift in Sources */,
 				524668712AE99434006309FE /* ExpensesModel.xcdatamodeld in Sources */,
+				DEB4BEB62AE9BF5D00D0A1E4 /* Fondos.swift in Sources */,
 				524668602AE993FC006309FE /* PocketTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

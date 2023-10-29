@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct MenuPrincipal: View {
+    @State private var selectedView = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                TabView(selection: $selectedView) {
+                    ContentView().tabItem {
+                        Text("Gastos")
+                        Image(systemName: "cart.fill")
+                    }
+                    
+                    Fondos().tabItem {
+                        Text("Fondos")
+                        Image(systemName: "creditcard.fill")
+                    }
+                    
+                    Resumen().tabItem {
+                        Text("Resumen")
+                        Image(systemName: "info.circle")
+                    }
+                    
+                    
+                }
+                
+                
+            }
+        }
     }
 }
 

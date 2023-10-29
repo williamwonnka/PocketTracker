@@ -45,6 +45,7 @@ class DataController: ObservableObject {
         save(context: context)
     }
     
+    
     func editGastos(expense: Expenses, name: String, gastos: Double, context: NSManagedObjectContext){
         expense.date = Date()
         expense.nombre = name

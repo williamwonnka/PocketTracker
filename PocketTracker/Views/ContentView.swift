@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import UIKit
 
 
 struct ContentView: View {
@@ -14,31 +15,64 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var expenses: FetchedResults<Expenses>
     
-    @State private var showingAddView = false
-    
+    @State public var showingAddView = false
+    @State private var selectedStartDate: Date?
+    @State private var selectedEndDate: Date?
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack(alignment: .leading) {
-                Text("$\(String(format: "%.2f",totalExpensesToday())) USD").foregroundColor(.gray)
+                HStack {
+                    Spacer()
+                    VStack{
+                        Text("Desde:")
+                        DatePicker("Seleccione una fecha", selection: Binding(get: {
+                            selectedStartDate ?? expenses.last?.date ?? Date()
+                        }, set: { newValue in
+                            selectedStartDate = newValue
+                        }), in: ...Date(), displayedComponents: .date)
+                        .labelsHidden()
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.horizontal)
+                    }
+                   
+                    VStack {
+                        Text("Hasta:")
+                        DatePicker("Seleccione una fecha", selection: Binding(get: {
+                            selectedEndDate ?? Date()
+                        }, set: { newValue in
+                            selectedEndDate = newValue
+                        }), in: ...Date(), displayedComponents: .date)
+                        .labelsHidden()
+                        .datePickerStyle(DefaultDatePickerStyle())
+                        .padding(.horizontal)
+                    }
+                    Spacer()
+                    
+                }
+                .padding()
+                
+                Text("$\(String(format: "%.2f", totalExpenses())) USD").foregroundColor(.gray)
                     .padding(.horizontal)
-                List{
-                    ForEach(expenses) { expenses in
-                        NavigationLink(destination: EditExpensesView(expenses: expenses)) {
-                            HStack{
-                                VStack(alignment: .leading, spacing: 6) {
-                                    Text("\(expenses.nombre!)")
-                                        .bold()
-                                    Text("$\(String(format: "%.2f", expenses.gastos)) USD").foregroundColor(.red)
+                
+                List {
+                    ForEach(expenses) { expense in
+                        if isExpenseWithinSelectedRange(expense.date) {
+                            NavigationLink(destination: EditExpensesView(expenses: expense)) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        Text("\(expense.nombre!)").bold()
+                                        Text("$\(String(format: "%.2f", expense.gastos)) USD").foregroundColor(.red)
+                                    }
+                                    Spacer()
+                                    Text(calcTimeSince(date: expense.date!))
+                                        .foregroundColor(.gray)
+                                        .italic()
                                 }
-                                Spacer()
-                                Text(calcTimeSince(date:expenses.date!))
-                                    .foregroundColor(.gray)
-                                    .italic()
                             }
                         }
                     }
-                    .onDelete(perform: deleteFood)
+                    .onDelete(perform: deleteExpense)
                 }
                 .listStyle(.plain)
             }
@@ -48,7 +82,7 @@ struct ContentView: View {
                     Button {
                         showingAddView.toggle()
                     } label: {
-                        Label("add food", systemImage: "plus.circle")
+                        Label("Agregar", systemImage: "plus.circle")
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -61,25 +95,27 @@ struct ContentView: View {
         }
         .navigationViewStyle(.stack)
     }
-    private func totalExpensesToday() -> Double {
-        
-        var expensesToday : Double = 0
-        for item in expenses{
-            if Calendar.current.isDateInToday(item.date!){
-                expensesToday += item.gastos
-            }
+    
+    private func isExpenseWithinSelectedRange(_ date: Date?) -> Bool {
+        guard let date = date else { return false }
+        if let startDate = selectedStartDate, let endDate = selectedEndDate {
+            return date >= startDate && date <= endDate
         }
-        return expensesToday
+        return true
     }
     
-    private func deleteFood(offsets: IndexSet) {
-        withAnimation{
+    private func totalExpenses() -> Double {
+        return expenses.filter { isExpenseWithinSelectedRange($0.date) }.reduce(0) { $0 + $1.gastos }
+    }
+    
+    private func deleteExpense(offsets: IndexSet) {
+        withAnimation {
             offsets.map { expenses[$0] }.forEach(managedObjContext.delete)
-            
-            DataController().save(context:managedObjContext)
+            DataController().save(context: managedObjContext)
         }
     }
 }
+
 
 #Preview {
     ContentView()

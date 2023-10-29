@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct AddMoneyView: View {
+    
+    @Environment(\.managedObjectContext) var managedObjContext
+    @Binding var isPresented: Bool  // Agrega este binding
+    
+    @State private var saldo = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(header: Text("Agregar Fondos"))  {
+                VStack {
+                    TextField("Ingresar Fondos:", text: $saldo)
+                    
+                    
+                }
+                
+                .padding()
+                HStack{
+                    Spacer()
+                    Button("Agregar"){
+                        MoneyController().addFondos(saldoActual: Double(saldo)!, context: managedObjContext)
+                        isPresented = false
+                    }
+                    Spacer()
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    AddMoneyView()
+    AddMoneyView(isPresented: .constant(true))
 }
